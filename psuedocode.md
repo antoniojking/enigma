@@ -22,8 +22,8 @@
 [] *create Text class
 
 [] Create Algorithm class (Calculator)
-    [] instantiate shifts, keys, offsets, encryption_date, decryption_date, message, ciphertext, character_set, encryption, decryption
-    [] method to calculate shifts
+    [x] instantiate shifts, keys, offsets, encryption_date, decryption_date, message, ciphertext, character_set, encryption, decryption
+    [x] method to calculate shifts
     [] method to encrypt = return encryption string
     [] method to decrypt = return decryption string
 
