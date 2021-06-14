@@ -4,11 +4,22 @@ require './lib/key'
 require './lib/algorithim'
 
 describe Algorithim do
+  before :each do
+    pin = '02715'
+    @key = Key.new(pin)
+    @key.create_keys
+
+    date = '040895'
+    @offset = Offset.new(date)
+    @offset.calculate_offsets
+
+    @character_set = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+  end
+
   it 'exists and has attributes' do
     text = 'hello world'
-    keys = [02, 27, 71, 15]
-    offsets = [1, 0, 2, 5]
-    character_set = ('a'..'z').to_a << " "
+    keys = @key.keys
+    offsets = @offset.offsets
     algorithim = Algorithim.new(text, keys, offsets)
 
     expect(algorithim).to be_an(Algorithim)
@@ -18,18 +29,22 @@ describe Algorithim do
     expect(algorithim.shifts).to eq([])
     expect(algorithim.encryption).to eq('')
     expect(algorithim.decryption).to eq('')
-    expect(algorithim.character_set).to eq(character_set)
+    expect(algorithim.character_set).to eq(@character_set)
   end
 
   it 'calculates_shifts' do
     text = 'hello world'
-    keys = [02, 27, 71, 15]
-    offsets = [1, 0, 2, 5]
-    character_set = ('a'..'z').to_a << " "
+    keys = @key.keys
+    offsets = @offset.offsets
     algorithim = Algorithim.new(text, keys, offsets)
 
     algorithim.calculate_shifts
 
     expect(algorithim.shifts).to eq([3, 27, 73, 20])
+  end
+
+  it 'encrypt' do
+
+
   end
 end
