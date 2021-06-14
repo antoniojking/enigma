@@ -12,8 +12,8 @@
 
 [] create Key class (calculated variable of calculator)
     [x] instantiate pin and keys array/hash
-    [] allow input of 5 digit number or generate random 5 digit number if not given
-    [] number should allow leading zeros
+    [x] allow input of 5 digit number or generate random 5 digit number if not given
+    [x] number should allow leading zeros
     [x] define A key
     [x] define B key
     [x] define C key
