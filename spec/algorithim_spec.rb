@@ -82,13 +82,25 @@ describe Algorithim do
     expect(algorithim.shift_index).to eq(expected)
   end
 
-  xit 'encrypt' do
+  it "character_shift_index" do
     text = 'hello world'
     keys = @key.keys
     offsets = @offset.offsets
     algorithim = Algorithim.new(text, keys, offsets)
     algorithim.calculate_shifts
 
-    expect(algorithim.encrypt).to eq('keder ohulw')
+    expected = [10, 4, 3, 4, 17, 26, 14, 7, 20, 11, 22]
+    expect(algorithim.character_shift_index).to eq(expected)
+  end
+
+  it 'encrypt' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+    algorithim.calculate_shifts
+    algorithim.encrypt 
+
+    expect(algorithim.encryption).to eq('keder ohulw')
   end
 end

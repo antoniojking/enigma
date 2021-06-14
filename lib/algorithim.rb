@@ -58,30 +58,22 @@ class Algorithim
     end
   end
 
+  def character_shift_index
+    reduce_shifts = shift_index.map do |shift|
+      shift % 27
+    end
+
+    data = [character_set_index, reduce_shifts]
+
+    data.transpose.map do |array|
+      array.sum % 27
+    end
+  end
+
   def encrypt
-  # A shift = 3
-  # if index of letter in message is (n % 4 == 0) => A shift
-  # if A > 27, what is remaining when A /27?
-  # What is array count for message?
-  # what is array index for letter?
-
-  #   index_a = 0 % 4
-  #   index_b = 1 % 4
-  #   index_c = 2 % 4
-  #   index_d = 3 % 4
-  #
-  #   text_array.map do |character|
-  #
-  #     if character_positon[0] || character_position[4]
-  #       num + @shifts[0]
-  #     elsif
-  #       num + @shifts[1]
-  #     elsif
-  #       num + @shifts[2]
-  #     else
-  #       num + @shifts[3]
-  #     end
-  #   end
-
+    encryption = character_shift_index.map do |num|
+      @character_set[num]
+    end
+    @encryption = encryption.join
   end
 end
