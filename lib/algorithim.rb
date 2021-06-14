@@ -24,6 +24,7 @@ class Algorithim
     end
   end
 
+### Helper Methods
   def text_array
     text_array = @text.split(//)
   end
@@ -37,18 +38,37 @@ class Algorithim
     text_index_positions
   end
 
-  # def encrypt
-  #
-  #
-  #
-  #   n_a = 0 % 4
-  #   n_b = 1 % 4
-  #   n_c = 2 % 4
-  #   n_d = 3 % 4
-  #
-  #   character_set_position = text_array.map do |character|
-  #     @character_set.index(character)
-  #   end
+  def character_set_index
+    character_set_position = text_array.map do |character|
+      @character_set.index(character)
+    end
+  end
+
+  def shift_index
+    text_index_shifts = text_array_index.map do |index|
+      if index % 4 == 0
+        @shifts[0]
+      elsif index % 4 == 1
+        @shifts[1]
+      elsif index % 4 == 2
+        @shifts[2]
+      else
+        @shifts[3]
+      end
+    end
+  end
+
+  def encrypt
+  # A shift = 3
+  # if index of letter in message is (n % 4 == 0) => A shift
+  # if A > 27, what is remaining when A /27?
+  # What is array count for message?
+  # what is array index for letter?
+
+  #   index_a = 0 % 4
+  #   index_b = 1 % 4
+  #   index_c = 2 % 4
+  #   index_d = 3 % 4
   #
   #   text_array.map do |character|
   #
@@ -62,13 +82,6 @@ class Algorithim
   #       num + @shifts[3]
   #     end
   #   end
-  #
-  #   # A shift = 3
-  #   # if postion of letter is n or n+4 => A shift
-  #   # if A > 27, what is remaining when A /27?
-  #   # What is array count for message?
-  #   # what is array index for letter?
-  #
-  #
-  # end
+
+  end
 end

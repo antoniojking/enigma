@@ -57,7 +57,29 @@ describe Algorithim do
     offsets = @offset.offsets
     algorithim = Algorithim.new(text, keys, offsets)
 
-    expect(algorithim.text_array_index).to eq([0,1,2,3,4,5,6,7,8,9,10])
+    expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    expect(algorithim.text_array_index).to eq(expected)
+  end
+
+  it 'character_set_index' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+
+    expected = [7, 4, 11, 11, 14, 26, 22, 14, 17, 11, 3]
+    expect(algorithim.character_set_index).to eq(expected)
+  end
+
+  it 'shift_index' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+    algorithim.calculate_shifts
+
+    expected = [3, 27, 73, 20, 3, 27, 73, 20, 3, 27, 73]
+    expect(algorithim.shift_index).to eq(expected)
   end
 
   xit 'encrypt' do
