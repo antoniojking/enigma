@@ -1,6 +1,6 @@
 # Enigma Pseudocode
 
-[] create Offset class (calculated variable of calculator)
+[x] create Offset class (calculated variable of calculator)
     [x] instantiate date and offsets array/hash  
     [x] allow input of date or default to today's date
     [x] format date as a number, DDMMYY
@@ -10,7 +10,7 @@
     [x] define C offset
     [x] define D offset
 
-[] create Key class (calculated variable of calculator)
+[x] create Key class (calculated variable of calculator)
     [x] instantiate pin and keys array/hash
     [x] allow input of 5 digit number or generate random 5 digit number if not given
     [x] number should allow leading zeros
