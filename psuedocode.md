@@ -5,19 +5,19 @@
     [x] allow input of date or default to today's date
     [x] format date as a number, DDMMYY
     [x] determine values for offset: square the value and pull last 4 digits
-    [] define A offset
-    [] define B offset
-    [] define C offset
-    [] define D offset
+    [x] define A offset
+    [x] define B offset
+    [x] define C offset
+    [x] define D offset
 
 [] create Key class (calculated variable of calculator)
-    [] instantiate pin and keys array/hash
-    [] allow input of 5 digit number or generate random 5 digit number if not given
-    [] number should allow leading zeros
-    [] define A key
-    [] define B key
-    [] define C key
-    [] define D key
+    [x] instantiate pin and keys array/hash
+    [x] allow input of 5 digit number or generate random 5 digit number if not given
+    [x] number should allow leading zeros
+    [x] define A key
+    [x] define B key
+    [x] define C key
+    [x] define D key
 
 [] *create Text class
 
