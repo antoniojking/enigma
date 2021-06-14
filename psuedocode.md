@@ -1,10 +1,10 @@
 # Enigma Pseudocode
 
 [] create Offset class (calculated variable of calculator)
-    [] instantiate date and offsets array/hash  
-    [] allow input of date or default to today's date
-    [] format date as a number, DDMMYY
-    [] determine values for offset: square the value and pull last 4 digits
+    [x] instantiate date and offsets array/hash  
+    [x] allow input of date or default to today's date
+    [x] format date as a number, DDMMYY
+    [x] determine values for offset: square the value and pull last 4 digits
     [] define A offset
     [] define B offset
     [] define C offset
