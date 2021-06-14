@@ -41,7 +41,26 @@ describe Algorithim do
     expect(algorithim.shifts).to eq([3, 27, 73, 20])
   end
 
-  it 'encrypt' do
+  it 'text_array' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+    expect(algorithim.text_array).to eq(expected)
+  end
+
+  it 'text_array_index' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+
+    expect(algorithim.text_array_index).to eq([0,1,2,3,4,5,6,7,8,9,10])
+  end
+
+  xit 'encrypt' do
     text = 'hello world'
     keys = @key.keys
     offsets = @offset.offsets
