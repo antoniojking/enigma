@@ -99,8 +99,19 @@ describe Algorithim do
     offsets = @offset.offsets
     algorithim = Algorithim.new(text, keys, offsets)
     algorithim.calculate_shifts
-    algorithim.encrypt 
+    algorithim.encrypt
 
     expect(algorithim.encryption).to eq('keder ohulw')
+  end
+
+  it 'decrypt' do
+    text = 'keder ohulw'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+    algorithim.calculate_shifts
+    algorithim.decrypt 
+
+    expect(algorithim.decryption).to eq('hello world')
   end
 end

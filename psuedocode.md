@@ -24,7 +24,7 @@
 [] Create Algorithm class (Calculator)
     [x] instantiate shifts, keys, offsets, encryption_date, decryption_date, message, ciphertext, character_set, encryption, decryption
     [x] method to calculate shifts
-    [] method to encrypt = return encryption string
+    [x] method to encrypt = return encryption string
     [] method to decrypt = return decryption string
 
 [] create Enigma Class

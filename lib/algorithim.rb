@@ -30,12 +30,14 @@ class Algorithim
   end
 
   def text_array_index
-    text_index_positions = []
-
-    text_array.length.times do |i|
-      text_index_positions << (i + 1) - 1
-    end
-    text_index_positions
+    length = text_array.length - 1
+    (0..length).to_a 
+    # text_index_positions = []
+    #
+    # text_array.length.times do |i|
+    #   text_index_positions << (i + 1) - 1
+    # end
+    # text_index_positions
   end
 
   def character_set_index
