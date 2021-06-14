@@ -4,10 +4,12 @@ require './lib/enigma'
 describe Enigma do
   it 'exists and has attributes' do
     enigma = Enigma.new
+
     expect(enigma).to be_an(Enigma)
+    expect(enigma.encryption).to eq({})
   end
 
-  it 'encrypt' do
+  xit 'encrypt' do
     enigma = Enigma.new
     message = 'hello world'
     key = '02715'
