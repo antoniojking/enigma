@@ -5,12 +5,10 @@ require './lib/algorithim'
 
 describe Algorithim do
   before :each do
-    pin = '02715'
-    @key = Key.new(pin)
+    @key = Key.new('02715')
     @key.create_keys
 
-    date = '040895'
-    @offset = Offset.new(date)
+    @offset = Offset.new('040895')
     @offset.calculate_offsets
 
     @character_set = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
@@ -44,7 +42,12 @@ describe Algorithim do
   end
 
   it 'encrypt' do
+    text = 'hello world'
+    keys = @key.keys
+    offsets = @offset.offsets
+    algorithim = Algorithim.new(text, keys, offsets)
+    algorithim.calculate_shifts
 
-
+    expect(algorithim.encrypt).to eq('keder ohulw')
   end
 end
