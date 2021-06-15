@@ -10,7 +10,6 @@ class Algorithim
               :decryption,
               :character_set
 
-  # def initialize(text, keys, offsets)
   def initialize(text, key, date)
     @text = text
     @key = Key.new(key)
@@ -22,7 +21,7 @@ class Algorithim
   end
 
   def calculate_shifts
-    data = [@keys, @offsets]
+    data = [@key.keys, @date.offsets]
     @shifts = data.transpose.map do |array|
       array.sum
     end

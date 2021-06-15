@@ -2,22 +2,20 @@ require './spec/spec_helper'
 require './lib/algorithim'
 
 describe Algorithim do
-  before :each do
-    @character_set = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-  end
 
   it 'exists and has attributes' do
     text = 'hello world'
     key = '02715'
     date = '040895'
     algorithim = Algorithim.new(text, key, date)
+    @character_set = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
 
     expect(algorithim).to be_an(Algorithim)
     expect(algorithim.text).to eq('hello world')
     # expect(algorithim.keys).to eq([02, 27, 71, 15])
-    expect(algorithim.key).to eq(key)
+    expect(algorithim.key).to be_an(Key)
     # expect(algorithim.offsets).to eq([1, 0, 2, 5])
-    expect(algorithim.date).to eq(date)
+    expect(algorithim.date).to be_an(Offset)
     expect(algorithim.shifts).to eq([])
     expect(algorithim.encryption).to eq('')
     expect(algorithim.decryption).to eq('')
@@ -26,10 +24,12 @@ describe Algorithim do
 
   it 'calculates_shifts' do
     text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
 
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
     algorithim.calculate_shifts
 
     expect(algorithim.shifts).to eq([3, 27, 73, 20])
