@@ -1,16 +1,20 @@
+require './lib/offset'
+require './lib/key'
+
 class Algorithim
   attr_reader :text,
-              :keys,
-              :offsets,
+              :key,
+              :date,
               :shifts,
               :encryption,
               :decryption,
               :character_set
 
-  def initialize(text, keys, offsets)
+  # def initialize(text, keys, offsets)
+  def initialize(text, key, date)
     @text = text
-    @keys = keys
-    @offsets = offsets
+    @key = Key.new(key)
+    @date = Offset.new(date)
     @shifts = []
     @encryption = ''
     @decryption = ''

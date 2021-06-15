@@ -9,25 +9,22 @@ describe Enigma do
     expect(enigma.encryption).to eq({})
   end
 
-  xit 'encrypt' do
+  it 'encrypt' do
     enigma = Enigma.new
-    message = 'hello world'
-    key = '02715'
-    date = '040895'
 
     expected1 = {
-      encryption: 'keder ohulw',
-      key:        '02715',
-      date:       '130621'
-    }
-
-    expected2 = {
       encryption: 'keder ohulw',
       key:        '02715',
       date:       '040895'
     }
 
-    expect(enigma.encrypt(message, key)).to eq(expected1)
-    expect(enigma.encrypt(message, key, date)).to eq(expected2)
+    # expected2 = {
+    #   encryption: 'keder ohulw',
+    #   key:        '32576',
+    #   date:       '140621'
+    # }
+
+    expect(enigma.encrypt('hello world', '02715', '040895')).to eq(expected1)
+    # expect(enigma.encrypt(message)).to eq(expected2)
   end
 end
