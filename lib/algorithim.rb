@@ -1,16 +1,19 @@
+require './lib/offset'
+require './lib/key'
+
 class Algorithim
   attr_reader :text,
-              :keys,
-              :offsets,
+              :key,
+              :date,
               :shifts,
               :encryption,
               :decryption,
               :character_set
 
-  def initialize(text, keys, offsets)
-    @text = text
-    @keys = keys
-    @offsets = offsets
+  def initialize(text, key, date)
+    @text = text.downcase
+    @key = Key.new(key)
+    @date = Offset.new(date)
     @shifts = []
     @encryption = ''
     @decryption = ''
@@ -18,7 +21,7 @@ class Algorithim
   end
 
   def calculate_shifts
-    data = [@keys, @offsets]
+    data = [@key.keys, @date.offsets]
     @shifts = data.transpose.map do |array|
       array.sum
     end
