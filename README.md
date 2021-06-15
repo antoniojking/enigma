@@ -61,56 +61,56 @@ pry(main)> enigma.encrypt("hello world")
 ```
 
 
-##Self Assessment
+## Self Assessment
 
 ### Functionality
 
 - Objective: *Meets Expectations(3.0)*
 - Description:
-    [] Enigma Class with encrypt and decrypt methods successfully implemented
-    [] Encrypt/decrypt command line interfaces successfully implemented
-- Score (scale of 1 to 4): **
-- Justification for score: **
+    - [x] Enigma Class with encrypt and decrypt methods successfully implemented
+    - [] Encrypt/decrypt command line interfaces successfully implemented
+- Score (scale of 1 to 4): *2.0*
+- Justification for score: *Was not able to properly setup command line interface*
 
 ### Object Oriented Programming
 
 - Objective: *Meets Expectations(3.0)*
 - Description:
-    [] Project is broken into logical components that are appropriately encapsulated
-    [] No classes are unreasonably small or large, or contain knowledge/information/behavior that they shouldn’t know about
-    [] Student can articulate the single responsibilities of the various components
-- Score (scale of 1 to 4):
-- Justification for score:
+    - [x] Project is broken into logical components that are appropriately encapsulated
+    - [x] No classes are unreasonably small or large, or contain knowledge/information/behavior that they shouldn’t know about
+    - [x] Student can articulate the single responsibilities of the various components
+- Score (scale of 1 to 4): *2.75*
+- Justification for score: *Could've broken down alogorithim better. Encapsulation could be better.*
 
 ### Ruby Conventions and Mechanics
 
 - Objective: *Meets Expectations(3.0)*
 - Description:
-    [] Code is mostly properly indented, spaced, and lines are not excessively long
-    [] Class, method, variable, and file names follow convention
-    [] Some enumerables/data structures chosen are the most efficient tool for a given job
-    [] Students can speak as to why those enumerables/data structures were chosen
-    [] At least one hash is implemented in a way that makes logical sense
-- Score (scale of 1 to 4): **
-- Justification for score: **
+    - [x] Code is mostly properly indented, spaced, and lines are not excessively long
+    - [x] Class, method, variable, and file names follow convention
+    - [x] Some enumerables/data structures chosen are the most efficient tool for a given job
+    - [x] Students can speak as to why those enumerables/data structures were chosen
+    - [] At least one hash is implemented in a way that makes logical sense
+- Score (scale of 1 to 4): *2.75*
+- Justification for score: *Not confident I implemented a hash; mostly used arrays*
 
 ### Test Driven Development
 
 - Objective: *Meets Expectations(3.0)*
 - Description:
-    [] Every method is tested at both the unit and integration level
-    [] Completely verify expected behavior (i.e., if a single method does 3 things, all 3 things are explicitly tested).
-    [] Obvious edge cases are addressed.
-    [] Git history demonstrates students are writing tests before implementation code.
-    [] Test coverage metrics show coverage at 99% or greater.
-- Score (scale of 1 to 4): **
-- Justification for score: **
+    - [x] Every method is tested at both the unit and integration level
+    - [x] Completely verify expected behavior (i.e., if a single method does 3 things, all 3 things are explicitly tested).
+    - [x] Obvious edge cases are addressed.
+    - [x] Git history demonstrates students are writing tests before implementation code.
+    - [] Test coverage metrics show coverage at 99% or greater.
+- Score (scale of 1 to 4): *2.75*
+- Justification for score: *SimpleCov at 98%, probably missed an edge case*
 
 ### Version Control
 
 - Objective: *Meets Expectations(3.0)*
 - Description:
-    [] Minimum of 30 commits
-    [] Pull request workflow that includes related and logical functionality
-- Score (scale of 1 to 4): **
-- Justification for score: **
+    - [x] Minimum of 30 commits
+    - [x] Pull request workflow that includes related and logical functionality
+- Score (scale of 1 to 4): *3.0*
+- Justification for score: *Over 30 commits and several successful merges with logical branching*
