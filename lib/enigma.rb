@@ -4,11 +4,12 @@ require './lib/key'
 require './lib/algorithim'
 
 class Enigma
-  attr_reader :encryption
+  attr_reader :encrypted,
+              :decrypted
 
   def initialize
-    @encryption = {}
-    @decryption = {}
+    @encrypted = {}
+    @decrypted = {}
   end
 
   def random_pin
@@ -25,11 +26,11 @@ class Enigma
     algorithim.date.calculate_offsets
     algorithim.calculate_shifts
 
-    @encryption[:encryption] = algorithim.encrypt
-    @encryption[:key] = algorithim.key.pin
-    @encryption[:date] = algorithim.date.date
+    @encrypted[:encryption] = algorithim.encrypt
+    @encrypted[:key] = algorithim.key.pin
+    @encrypted[:date] = algorithim.date.date
 
-    @encryption
+    @encrypted
   end
 
   def decrypt(message, key, date = (Date.today.strftime('%d%m%y')))
@@ -39,10 +40,10 @@ class Enigma
     algorithim.date.calculate_offsets
     algorithim.calculate_shifts
 
-    @decryption[:decryption] = algorithim.decrypt
-    @decryption[:key] = algorithim.key.pin
-    @decryption[:date] = algorithim.date.date
+    @decrypted[:decryption] = algorithim.decrypt
+    @decrypted[:key] = algorithim.key.pin
+    @decrypted[:date] = algorithim.date.date
 
-    @decryption
+    @decrypted
   end
 end

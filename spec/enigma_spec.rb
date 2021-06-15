@@ -41,11 +41,11 @@ describe Enigma do
     enigma = Enigma.new
 
     expected1 = {
-      decryption: 'keder ohulw',
+      decryption: 'hello_world',
       key:        '02715',
       date:       '150621'
     }
 
-    expect(enigma.decrypt('hello world', '02715')).to eq(expected1)
+    expect(enigma.decrypt('keder ohulw', '02715')).to eq(expected1)
   end
 end
