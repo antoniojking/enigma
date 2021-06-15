@@ -10,7 +10,14 @@ class Enigma
     @encryption = {}
   end
 
-  def encrypt(message, key = nil, date = nil)
+  def random_pin
+    random = 5.times.map do
+      rand(10)
+    end
+    random.join
+  end
+
+  def encrypt(message, key = random_pin, date = (Date.today.strftime('%d%m%y')))
     algorithim = Algorithim.new(message, key, date)
 
     algorithim.key.create_keys

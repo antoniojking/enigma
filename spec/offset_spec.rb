@@ -25,10 +25,4 @@ describe Offset do
 
     expect(offset.offsets).to eq([1, 0, 2, 5])
   end
-
-  it 'todays_date' do
-    offset = Offset.new
-
-    expect(offset.date).to eq('140621')
-  end
 end

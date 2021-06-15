@@ -2,7 +2,7 @@ class Key
   attr_reader :pin,
               :keys
 
-  def initialize(pin = random_pin)
+  def initialize(pin)
     @pin  = pin
     @keys = []
   end
@@ -17,10 +17,10 @@ class Key
     @keys << array_of_strings[3..4].join.to_i
   end
 
-  def random_pin
-    random = 5.times.map do
-      rand(10)
-    end
-    @pin = random.join
-  end
+  # def random_pin
+  #   random = 5.times.map do
+  #     rand(10)
+  #   end
+  #   random.join
+  # end
 end
