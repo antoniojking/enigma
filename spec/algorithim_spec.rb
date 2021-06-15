@@ -37,9 +37,9 @@ describe Algorithim do
 
   it 'text_array' do
     text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
 
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
     expect(algorithim.text_array).to eq(expected)
