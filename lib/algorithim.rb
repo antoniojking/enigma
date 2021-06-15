@@ -31,7 +31,7 @@ class Algorithim
 
   def text_array_index
     length = text_array.length - 1
-    (0..length).to_a 
+    (0..length).to_a
     # text_index_positions = []
     #
     # text_array.length.times do |i|
@@ -60,7 +60,7 @@ class Algorithim
     end
   end
 
-  def character_shift_index
+  def encrypt_character_shift_index
     reduce_shifts = shift_index.map do |shift|
       shift % 27
     end
@@ -73,9 +73,28 @@ class Algorithim
   end
 
   def encrypt
-    encryption = character_shift_index.map do |num|
+    encryption = encrypt_character_shift_index.map do |num|
       @character_set[num]
     end
     @encryption = encryption.join
+  end
+
+  def decrypt_character_shift_index
+    reduce_shifts = shift_index.map do |shift|
+      shift % 27
+    end
+
+    data = [character_set_index, reduce_shifts]
+
+    data.transpose.map do |array|
+      (array[0] - array[1]) % 27
+    end
+  end
+
+  def decrypt
+    decryption = decrypt_character_shift_index.map do |num|
+      @character_set[num]
+    end
+    @decryption = decryption.join
   end
 end
