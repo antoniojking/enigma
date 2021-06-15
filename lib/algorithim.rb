@@ -24,20 +24,8 @@ class Algorithim
     end
   end
 
-### Helper Methods
   def text_array
     text_array = @text.split(//)
-  end
-
-  def text_array_index
-    length = text_array.length - 1
-    (0..length).to_a
-    # text_index_positions = []
-    #
-    # text_array.length.times do |i|
-    #   text_index_positions << (i + 1) - 1
-    # end
-    # text_index_positions
   end
 
   def character_set_index
@@ -46,54 +34,39 @@ class Algorithim
     end
   end
 
+  def text_array_index
+    length = text_array.length - 1
+    (0..length).to_a
+  end
+
   def shift_index
     text_index_shifts = text_array_index.map do |index|
       if index % 4 == 0
-        @shifts[0]
+        @shifts[0] % @character_set.length
       elsif index % 4 == 1
-        @shifts[1]
+        @shifts[1] % @character_set.length
       elsif index % 4 == 2
-        @shifts[2]
+        @shifts[2] % @character_set.length
       else
-        @shifts[3]
+        @shifts[3] % @character_set.length
       end
     end
   end
 
-  def encrypt_character_shift_index
-    reduce_shifts = shift_index.map do |shift|
-      shift % 27
-    end
-
-    data = [character_set_index, reduce_shifts]
-
-    data.transpose.map do |array|
-      array.sum % 27
-    end
-  end
-
   def encrypt
-    encryption = encrypt_character_shift_index.map do |num|
-      @character_set[num]
+    data = [character_set_index, shift_index]
+
+    encryption = data.transpose.map do |array|
+      @character_set[array.sum % 27]
     end
     @encryption = encryption.join
   end
 
-  def decrypt_character_shift_index
-    reduce_shifts = shift_index.map do |shift|
-      shift % 27
-    end
-
-    data = [character_set_index, reduce_shifts]
-
-    data.transpose.map do |array|
-      (array[0] - array[1]) % 27
-    end
-  end
-
   def decrypt
-    decryption = decrypt_character_shift_index.map do |num|
-      @character_set[num]
+    data = [character_set_index, shift_index]
+
+    decryption = data.transpose.map do |array|
+      @character_set[(array[0] - array[1]) % 27]
     end
     @decryption = decryption.join
   end

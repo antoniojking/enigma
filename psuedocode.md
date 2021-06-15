@@ -25,7 +25,7 @@
     [x] instantiate shifts, keys, offsets, encryption_date, decryption_date, message, ciphertext, character_set, encryption, decryption
     [x] method to calculate shifts
     [x] method to encrypt = return encryption string
-    [] method to decrypt = return decryption string
+    [x] method to decrypt = return decryption string
 
 [] create Enigma Class
     [] add encrypt method with (message, key, date) as arguments
