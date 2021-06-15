@@ -33,7 +33,11 @@ class Algorithim
 
   def character_set_index
     character_set_position = text_array.map do |character|
-      @character_set.index(character)
+      if @character_set.index(character).nil?
+        character
+      else
+        @character_set.index(character)
+      end
     end
   end
 
@@ -60,7 +64,11 @@ class Algorithim
     data = [character_set_index, shift_index]
 
     encryption = data.transpose.map do |array|
-      @character_set[array.sum % 27]
+      if array[0].class == String
+        array[0]
+      else
+        @character_set[(array[0] + array[1]) % 27]
+      end
     end
     @encryption = encryption.join
   end
@@ -69,7 +77,11 @@ class Algorithim
     data = [character_set_index, shift_index]
 
     decryption = data.transpose.map do |array|
-      @character_set[(array[0] - array[1]) % 27]
+      if array[0].class == String
+        array[0]
+      else
+        @character_set[(array[0] - array[1]) % 27]
+      end
     end
     @decryption = decryption.join
   end

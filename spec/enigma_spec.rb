@@ -21,7 +21,7 @@ describe Enigma do
     enigma = Enigma.new
 
     expected1 = {
-      encryption: 'keder ohulw',
+      encryption: 'keder ohulw!',
       key:        '02715',
       date:       '040895'
     }
@@ -34,7 +34,7 @@ describe Enigma do
 
     # allow(enigma).to receive().and_return('32576')
 
-    expect(enigma.encrypt('Hello World', '02715', '040895')).to eq(expected1)
+    expect(enigma.encrypt('Hello World!', '02715', '040895')).to eq(expected1)
     # expect(enigma.encrypt('hello world')).to eq(expected2)
   end
 
