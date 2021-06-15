@@ -33,7 +33,19 @@ describe Enigma do
 
     # allow(enigma).to receive().and_return('32576')
 
-    expect(enigma.encrypt('hello world', '02715', '040895')).to eq(expected1)
+    expect(enigma.encrypt('Hello World', '02715', '040895')).to eq(expected1)
     # expect(enigma.encrypt('hello world')).to eq(expected2)
+  end
+
+  it 'decrypt' do
+    enigma = Enigma.new
+
+    expected1 = {
+      decryption: 'keder ohulw',
+      key:        '02715',
+      date:       '150621'
+    }
+
+    expect(enigma.decrypt('hello world', '02715')).to eq(expected1)
   end
 end

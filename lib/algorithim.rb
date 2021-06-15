@@ -11,7 +11,7 @@ class Algorithim
               :character_set
 
   def initialize(text, key, date)
-    @text = text
+    @text = text.downcase
     @key = Key.new(key)
     @date = Offset.new(date)
     @shifts = []

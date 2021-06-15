@@ -8,6 +8,7 @@ class Enigma
 
   def initialize
     @encryption = {}
+    @decryption = {}
   end
 
   def random_pin
@@ -29,5 +30,19 @@ class Enigma
     @encryption[:date] = algorithim.date.date
 
     @encryption
+  end
+
+  def decrypt(message, key, date = (Date.today.strftime('%d%m%y')))
+    algorithim = Algorithim.new(message, key, date)
+
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
+    algorithim.calculate_shifts
+
+    @decryption[:decryption] = algorithim.decrypt
+    @decryption[:key] = algorithim.key.pin
+    @decryption[:date] = algorithim.date.date
+
+    @decryption
   end
 end
