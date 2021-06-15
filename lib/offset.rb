@@ -4,7 +4,7 @@ class Offset
   attr_reader :date,
               :offsets
 
-  def initialize(date)
+  def initialize(date = todays_date)
     @date    = date
     @offsets = []
   end
@@ -20,5 +20,9 @@ class Offset
     squared_array[-4..-1].each do |num|
       @offsets << num
     end
+  end
+
+  def todays_date
+    Date.today.strftime('%d%m%y')
   end
 end

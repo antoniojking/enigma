@@ -18,13 +18,13 @@ describe Enigma do
       date:       '040895'
     }
 
-    # expected2 = {
-    #   encryption: 'keder ohulw',
-    #   key:        '32576',
-    #   date:       '140621'
-    # }
+    expected2 = {
+      encryption: 'keder ohulw',
+      key:        '32576',
+      date:       '140621'
+    }
 
     expect(enigma.encrypt('hello world', '02715', '040895')).to eq(expected1)
-    # expect(enigma.encrypt(message)).to eq(expected2)
+    expect(enigma.encrypt('hello world')).to eq(expected2)
   end
 end

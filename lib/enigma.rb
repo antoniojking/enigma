@@ -10,28 +10,17 @@ class Enigma
     @encryption = {}
   end
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = nil, date = nil)
     algorithim = Algorithim.new(message, key, date)
 
-    @encryption[:encryption] = algorithim.encrypt
-    @encryption[:key] = key
-    @encryption[:date] = date
-  end
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
+    algorithim.calculate_shifts
 
-  # def encrypt(message, key = nil, date = nil)
-  #   @encryption[:encryption] =
-  #
-  #   if key.nil?
-  #     @encryption[:key] = Key.new.random_pin
-  #   else
-  #     @encryption[:key] = key.pin
-  #   end
-  #
-  #   if date.nil?
-  #     @encryption[:date] = Date.today.strftime('%d%m%y')
-  #   else
-  #     @encryption[:date] = date
-  #   end
-  #   @encryption
-  # end
+    @encryption[:encryption] = algorithim.encrypt
+    @encryption[:key] = algorithim.key.pin
+    @encryption[:date] = algorithim.date.date
+
+    @encryption
+  end
 end

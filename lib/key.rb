@@ -2,7 +2,7 @@ class Key
   attr_reader :pin,
               :keys
 
-  def initialize(pin = nil)
+  def initialize(pin = random_pin)
     @pin  = pin
     @keys = []
   end
