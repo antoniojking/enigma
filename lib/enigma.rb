@@ -12,6 +12,7 @@ class Enigma
 
   def encrypt(message, key, date)
     algorithim = Algorithim.new(message, key, date)
+
     @encryption[:encryption] = algorithim.encrypt
     @encryption[:key] = key
     @encryption[:date] = date

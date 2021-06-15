@@ -45,31 +45,34 @@ describe Algorithim do
     expect(algorithim.text_array).to eq(expected)
   end
 
-  it 'text_array_index' do
-    text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
-
-    expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    expect(algorithim.text_array_index).to eq(expected)
-  end
-
   it 'character_set_index' do
     text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
 
     expected = [7, 4, 11, 11, 14, 26, 22, 14, 17, 11, 3]
     expect(algorithim.character_set_index).to eq(expected)
   end
 
+  it 'text_array_index' do
+    text = 'hello world'
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
+
+    expected = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    expect(algorithim.text_array_index).to eq(expected)
+  end
+
   it 'shift_index' do
     text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
+
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
     algorithim.calculate_shifts
 
     expected = [3, 0, 19, 20, 3, 0, 19, 20, 3, 0, 19]
@@ -78,9 +81,12 @@ describe Algorithim do
 
   it 'encrypt' do
     text = 'hello world'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
+
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
     algorithim.calculate_shifts
     algorithim.encrypt
 
@@ -89,9 +95,12 @@ describe Algorithim do
 
   it 'decrypt' do
     text = 'keder ohulw'
-    keys = @key.keys
-    offsets = @offset.offsets
-    algorithim = Algorithim.new(text, keys, offsets)
+    key = '02715'
+    date = '040895'
+    algorithim = Algorithim.new(text, key, date)
+
+    algorithim.key.create_keys
+    algorithim.date.calculate_offsets
     algorithim.calculate_shifts
     algorithim.decrypt
 
